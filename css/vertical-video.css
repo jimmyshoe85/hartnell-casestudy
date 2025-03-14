@@ -1,0 +1,219 @@
+/* === Vertical Video Component (9:16 Aspect Ratio) === */
+.vertical-video-section {
+    padding: 60px 0;
+    background-color: var(--light-gray);
+}
+
+.vertical-video-container {
+    width: 100%;
+    max-width: 450px; /* Controls the maximum width of the video */
+    margin: 0 auto;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: var(--black);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.vertical-video-wrapper {
+    width: 100%;
+    padding-bottom: 177.78%; /* 16:9 would be 56.25%, 9:16 is 177.78% (16/9 * 100) */
+    position: relative;
+}
+
+.vertical-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color: var(--black);
+}
+
+/* Custom play button overlay */
+.video-play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70px;
+    height: 70px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 5;
+    transition: all 0.3s ease;
+}
+
+.video-play-button:hover {
+    background-color: var(--primary-color);
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.video-play-button i {
+    color: var(--white);
+    font-size: 30px;
+    margin-left: 5px; /* Slight offset for the play icon */
+}
+
+/* Video controls styling */
+.vertical-video::-webkit-media-controls {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Mobile phone frame styling */
+.phone-frame-container {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    position: relative;
+    padding: 20px 0;
+}
+
+.phone-frame {
+    position: relative;
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+    padding: 40px 15px;
+    border-radius: 36px;
+    background-color: #111;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 
+                inset 0 2px 0 #333, 
+                inset 0 -2px 0 #333,
+                inset 2px 0 0 #333,
+                inset -2px 0 0 #333;
+}
+
+.phone-notch {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 25px;
+    background-color: #111;
+    border-bottom-left-radius: 14px;
+    border-bottom-right-radius: 14px;
+}
+
+.phone-frame-inner {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 12px;
+    position: relative;
+}
+
+/* Caption area below video */
+.video-caption {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1rem;
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Multiple videos layout */
+.vertical-videos-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin: 40px 0;
+}
+
+.vertical-video-item {
+    width: 280px;
+}
+
+/* Video controls overlay */
+.video-controls-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 4;
+}
+
+.vertical-video-container:hover .video-controls-overlay {
+    opacity: 1;
+}
+
+.video-title-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), transparent);
+    z-index: 3;
+}
+
+.video-title-overlay h3 {
+    color: var(--white);
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* Social media platform icons */
+.platform-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.platform-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: var(--white);
+}
+
+.platform-icon.tiktok {
+    background-color: #000;
+}
+
+.platform-icon.instagram {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}
+
+.platform-icon.youtube {
+    background-color: #FF0000;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .vertical-video-container {
+        max-width: 340px;
+    }
+}
+
+@media (max-width: 576px) {
+    .vertical-video-container {
+        max-width: 280px;
+    }
+    
+    .video-play-button {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+    }
+}

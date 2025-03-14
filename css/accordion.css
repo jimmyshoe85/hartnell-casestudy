@@ -1,0 +1,94 @@
+/* === Accordion Component === */
+.accordion {
+    width: 100%;
+    margin: 20px 0;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.accordion-item {
+    border: 1px solid var(--gray);
+    margin-bottom: 10px;
+    border-radius: var(--border-radius);
+    background-color: var(--white);
+    box-shadow: var(--box-shadow);
+}
+
+.accordion-header {
+    padding: 15px 20px;
+    background-color: var(--white);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: var(--transition);
+    font-weight: 600;
+}
+
+.accordion-header:hover {
+    background-color: var(--light-gray);
+}
+
+.accordion-header.active {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.accordion-indicator {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.accordion-header.active .accordion-indicator {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background-color: var(--white);
+}
+
+.accordion-content-inner {
+    padding: 20px;
+    border-top: 1px solid var(--gray);
+}
+
+/* === Insights Component === */
+.insights-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.insight-card {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transition: transform 0.3s ease;
+    border-top: 4px solid var(--primary-color);
+}
+
+.insight-card:hover {
+    transform: translateY(-5px);
+}
+
+.insight-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+@media (max-width: 992px) {
+    .insights-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .insights-grid {
+        grid-template-columns: 1fr;
+    }
+}
